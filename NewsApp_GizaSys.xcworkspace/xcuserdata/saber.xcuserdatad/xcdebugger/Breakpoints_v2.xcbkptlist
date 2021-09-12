@@ -7,17 +7,241 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A7672718-90B5-45A1-81E3-8ED281928BDB"
+            uuid = "13D8ED7C-2CBB-4B1F-B838-39F9E49DD30A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37EBE84C-0D2F-4708-BB54-5B561C12EC78"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NewsApp_GizaSys/Scenes/News List screen/Models/NewsModel.swift"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "init(from:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "37EBE84C-0D2F-4708-BB54-5B561C12EC78 - 12bdc5a5d98b90b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static NewsApp_GizaSys.NewsRequestsFactory.retrieveDaysNews&lt;A where A: Swift.Decodable&gt;(modelType: A.Type, successBlock: (Swift.Optional&lt;Swift.Decodable&gt;) -&gt; (), failureBlock: (Swift.Optional&lt;Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NewsApp_GizaSys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saber/Desktop/Developer/NewsApp_GizaSys/NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "3440">
+               </Location>
+               <Location
+                  uuid = "37EBE84C-0D2F-4708-BB54-5B561C12EC78 - 12bdc5a5d98b90b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static NewsApp_GizaSys.NewsRequestsFactory.retrieveDaysNews&lt;A where A: Swift.Decodable&gt;(modelType: A.Type, successBlock: (Swift.Optional&lt;Swift.Decodable&gt;) -&gt; (), failureBlock: (Swift.Optional&lt;Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NewsApp_GizaSys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saber/Desktop/Developer/NewsApp_GizaSys/NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "3954">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30017879-7DC2-4E32-935B-D3690800BB69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41049562-D455-4730-BE87-CBCE43C1BF7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C70C6C1-519E-4B7D-9CB8-18D7EEDFEA82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9B88BC5-91A4-4F72-8848-6A715D18BB3C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8895632-BEA4-4C9A-9B15-1C3504E0A38C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16940327-13C7-45FD-A973-C0F451361FDD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97207827-21BC-41BB-BD93-99A7A7FD63D4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A045EF8-001D-42A2-89E3-E4D6A8A5236E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "211ADDA9-D1F6-462F-A52F-9C6B553BEAFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "retrieveDaysNews(modelType:successBlock:failureBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "211ADDA9-D1F6-462F-A52F-9C6B553BEAFA - 12bdc5a5d98b973d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static NewsApp_GizaSys.NewsRequestsFactory.retrieveDaysNews&lt;A where A: Swift.Decodable&gt;(modelType: A.Type, successBlock: (Swift.Optional&lt;Swift.Decodable&gt;) -&gt; (), failureBlock: (Swift.Optional&lt;Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NewsApp_GizaSys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saber/Desktop/Developer/NewsApp_GizaSys/NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "2930">
+               </Location>
+               <Location
+                  uuid = "211ADDA9-D1F6-462F-A52F-9C6B553BEAFA - 6ee14c950cbcc22b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static NewsApp_GizaSys.NewsRequestsFactory.retrieveDaysNews&lt;A where A: Swift.Decodable&gt;(modelType: A.Type, successBlock: (Swift.Optional&lt;Swift.Decodable&gt;) -&gt; (), failureBlock: (Swift.Optional&lt;Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NewsApp_GizaSys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saber/Desktop/Developer/NewsApp_GizaSys/NewsApp_GizaSys/Gateaway/NetworkServices/NewsRequestsFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

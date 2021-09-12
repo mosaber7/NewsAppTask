@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zm-Uf-DJg">
-                        <rect key="frame" x="8" y="166" width="314" height="20.5"/>
+                        <rect key="frame" x="16" y="166" width="306" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYG-23-9bV">
-                        <rect key="frame" x="8" y="194.5" width="314" height="21"/>
+                        <rect key="frame" x="16" y="194.5" width="306" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,8 +43,8 @@
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gYG-23-9bV" secondAttribute="bottom" constant="4" id="OvU-R3-awW"/>
                     <constraint firstItem="1Zm-Uf-DJg" firstAttribute="top" secondItem="PsN-ji-gbJ" secondAttribute="bottom" constant="8" id="UDe-cj-xMR"/>
                     <constraint firstItem="gYG-23-9bV" firstAttribute="leading" secondItem="1Zm-Uf-DJg" secondAttribute="leading" id="baY-E7-5H4"/>
-                    <constraint firstItem="1Zm-Uf-DJg" firstAttribute="leading" secondItem="PsN-ji-gbJ" secondAttribute="leading" id="gvV-WR-aF3"/>
                     <constraint firstAttribute="trailing" secondItem="PsN-ji-gbJ" secondAttribute="trailing" constant="8" id="n7k-KU-Fge"/>
+                    <constraint firstItem="1Zm-Uf-DJg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rl5-ea-D2c"/>
                     <constraint firstItem="gYG-23-9bV" firstAttribute="top" secondItem="1Zm-Uf-DJg" secondAttribute="bottom" constant="8" id="wdU-UU-EUG"/>
                     <constraint firstItem="gYG-23-9bV" firstAttribute="trailing" secondItem="1Zm-Uf-DJg" secondAttribute="trailing" id="xSx-d0-nsM"/>
                 </constraints>

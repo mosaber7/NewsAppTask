@@ -11,10 +11,15 @@ protocol NewsListPresenterProtocol {
     var view: NewsListViewProtocol?{get set}
     var numberOfRowsInSection: Int {get}
     func configureCell() -> (String, String)
+    func selectCell(at index: IndexPath)
+    
+    func articlesFetchedSuccessfully(articles: [Article])
+    func articlesFetchedWithAnError(error: Error)
 }
 
 class NewsListPresenter{
 
+    private var articles: [Article]?
     weak var view: NewsListViewProtocol?
     private let interactor: NewsListInteractorProtocol?
     private let router: NewsListRouterProtocol?
@@ -30,9 +35,24 @@ class NewsListPresenter{
 }
 
 extension NewsListPresenter: NewsListPresenterProtocol{
+    
+    
     func configureCell()-> (String, String) {
         return ("Mohamed", "Saber")
     }
+    func selectCell(at index: IndexPath) {
+        let detailsRoute = NewsListNavigationRouter.Details
+        self.view?.navigate(to: detailsRoute)
+    }
+    func articlesFetchedSuccessfully(articles: [Article]) {
+        self.articles = articles
+    }
+    
+    func articlesFetchedWithAnError(error: Error) {
+        self.view?.presentAnAlert(error: error)
+    }
+    
+    
     
     
 }

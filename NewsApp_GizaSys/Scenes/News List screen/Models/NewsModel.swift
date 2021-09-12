@@ -17,7 +17,7 @@ class News: Codable {
 }
 
 enum ArticleCodingKeys: String, CodingKey {
-    case source
+    case source = "source"
     case author, title
     case articleDescription = "description"
     case url, urlToImage, publishedAt, content

@@ -60,6 +60,21 @@
             </objects>
             <point key="canvasLocation" x="133" y="114"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="5Zc-pb-BrC">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="tSQ-Dg-WYP" customClass="DetailsViewController" customModule="NewsApp_GizaSys" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GAo-hT-8NL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YgU-FQ-PPX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPa-j8-LGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="139"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

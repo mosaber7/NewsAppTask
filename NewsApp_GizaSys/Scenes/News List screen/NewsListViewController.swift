@@ -7,8 +7,10 @@
 
 import UIKit
 
-protocol NewsListViewProtocol : AnyObject{
+protocol NewsListViewProtocol : AnyObject, NavigationRoute{
     var presenter: NewsListPresenterProtocol?{set get}
+    func reloadData()
+    func presentAnAlert(error: Error)
 }
 
 class NewsListViewController: UIViewController {
@@ -21,18 +23,16 @@ class NewsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
-        title = "Home"
+        title = "News"
         
-        NewsRequestsFactory.retrieveDaysNews(modelType: Article.self) { (responce) in
-            
+        NewsRequestsFactory.retrieveDaysNews(modelType: Article.self) { (response) in
+            print(response)
         } failureBlock: { (error) in
-            print("jjjjj\(error)")
+            print(error)
         }
+
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        homeTableView.frame = homeTableView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-    }
+   
     
     
     private func registerCell(){
@@ -46,6 +46,14 @@ class NewsListViewController: UIViewController {
 //MARK: - confiriming to NewsListViewProtocol
 extension NewsListViewController: NewsListViewProtocol{
     
+    func presentAnAlert(error: Error) {
+        let alert = UIAlertController(title: "ATTENTION", message: error.localizedDescription, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func reloadData() {
+        homeTableView.reloadData()
+    }
 }
 
 //MARK: - tableView setup
@@ -60,6 +68,9 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
         
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter?.selectCell(at: indexPath)
     }
      
 }

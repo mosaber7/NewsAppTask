@@ -21,7 +21,7 @@ class NewsRequestsFactory{
         AF.request(NewsURLFactory.News("apple")).responseJSON { (responce) in
             do{
                 let networkResponse = try responce.result.get()
-                print(networkResponse)
+
                 if responce.response?.statusCode == 200{
                     do{
                         guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
@@ -35,15 +35,13 @@ class NewsRequestsFactory{
                         
                         
                         let modelResponse =   try jsonDecoder.decode(T.self, from: responce.data!)
-                           print(modelResponse)
-                        
+                        print(modelResponse)
  
                         try managedObjectContext.save()
                         // Parse JSON data to save
                  
                       jsonDecoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
                       let newsData =   try jsonDecoder.decode(T.self, from: responce.data!)
-                       print(newsData)
                       DispatchQueue.main.async {
                         successBlock(newsData)
                       }

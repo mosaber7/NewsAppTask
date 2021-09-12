@@ -23,6 +23,11 @@ class NewsListInteractor {
 extension NewsListInteractor : NewsListInteractorProtocol{
     
     func getNews(for topic: String) {
-    
+        NewsRequestsFactory.retrieveDaysNews(modelType: Article.self) { (responce) in
+print(responce)
+        } failureBlock: { (error) in
+            print(error)
+        }
+
     }
 }
