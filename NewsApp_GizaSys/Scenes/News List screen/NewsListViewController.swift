@@ -25,11 +25,7 @@ class NewsListViewController: UIViewController {
         registerCell()
         title = "News"
         
-        NewsRequestsFactory.retrieveDaysNews(modelType: Article.self) { (response) in
-            print(response)
-        } failureBlock: { (error) in
-            print(error)
-        }
+        self.presenter?.viewDidLoad()
 
     }
    

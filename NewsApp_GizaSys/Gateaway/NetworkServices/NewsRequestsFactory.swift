@@ -16,11 +16,10 @@ class NewsRequestsFactory{
     // Block to handle responses in case of failure
     typealias NetworkFailureBlock = (AFError?)->Void
     
-    static func retrieveDaysNews<T>(modelType:T.Type, successBlock:@escaping NetworkSuccessBlock, failureBlock:@escaping NetworkFailureBlock) where T : Decodable {
+    static func retrieveDaysNews<T>(modelType:T.Type, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
         
         AF.request(NewsURLFactory.News("apple")).responseJSON { (responce) in
             do{
-                let networkResponse = try responce.result.get()
 
                 if responce.response?.statusCode == 200{
                     do{
@@ -54,8 +53,6 @@ class NewsRequestsFactory{
                 }else{
                     
                 }
-                
-            }catch{
                 
             }
         }

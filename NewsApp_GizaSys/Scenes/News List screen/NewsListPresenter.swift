@@ -15,6 +15,7 @@ protocol NewsListPresenterProtocol {
     
     func articlesFetchedSuccessfully(articles: [Article])
     func articlesFetchedWithAnError(error: Error)
+    func viewDidLoad()
 }
 
 class NewsListPresenter{
@@ -50,6 +51,9 @@ extension NewsListPresenter: NewsListPresenterProtocol{
     
     func articlesFetchedWithAnError(error: Error) {
         self.view?.presentAnAlert(error: error)
+    }
+    func viewDidLoad() {
+        self.interactor?.getNews(for: "Apple")
     }
     
     

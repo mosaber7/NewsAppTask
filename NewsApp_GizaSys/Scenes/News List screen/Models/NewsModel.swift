@@ -24,7 +24,8 @@ enum ArticleCodingKeys: String, CodingKey {
 }
 
 enum SourceCodingKeys: String, CodingKey {
-    case id, name
+    case id
+    case name
     
 }
 // MARK: - Article
@@ -37,7 +38,7 @@ class Article: NSManagedObject, Codable {
     @NSManaged var urlToImage: String?
     @NSManaged var publishedAt: String?
     @NSManaged var content: String?
-    @NSManaged var sourceName: String?
+    @NSManaged var name: String?
     
     required convenience init(from decoder: Decoder) throws {
         
@@ -65,7 +66,7 @@ class Article: NSManagedObject, Codable {
         self.content = try container.decodeIfPresent(String.self, forKey: .content)
         let sourceData  = try container.nestedContainer(keyedBy:
                                                           SourceCodingKeys.self, forKey: .source)
-        self.sourceName = try (sourceData.decodeIfPresent(String.self, forKey: .name))
+        self.name = try (sourceData.decodeIfPresent(String.self, forKey: .name))
         
         
     }
@@ -84,7 +85,7 @@ class Article: NSManagedObject, Codable {
 
         var dataResponse  =  container.nestedContainer(keyedBy:
                                                         SourceCodingKeys.self, forKey: .source)
-        try dataResponse.encodeIfPresent(sourceName, forKey: .name)
+        try dataResponse.encodeIfPresent(name, forKey: .name)
         
     }
     

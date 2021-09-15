@@ -4,13 +4,17 @@
         <attribute name="articleDescription" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="publishedAt" optional="YES" attributeType="String"/>
-        <attribute name="sourceName" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="urlToImage" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Source" representedClassName="Source" syncable="YES" codeGenerationType="class">
+        <attribute name="attribute" optional="YES"/>
+    </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="Source" positionX="-63" positionY="45" width="128" height="44"/>
     </elements>
 </model>
