@@ -24,7 +24,7 @@ class NewsListInteractor {
 extension NewsListInteractor : NewsListInteractorProtocol{
     
     func getNews(for topic: String) {
-        NewsRequestsFactory.retrieveDaysNews(modelType: Article.self) { [weak self] (responce) in
+        NewsRequestsFactory.retrieveDaysNews(modelType: News.self) { [weak self] (responce) in
             self?.news = responce as? News
             print(self?.news)
             

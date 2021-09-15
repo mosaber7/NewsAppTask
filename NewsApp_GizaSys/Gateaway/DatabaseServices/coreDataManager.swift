@@ -29,7 +29,7 @@ class coreDataManager: NSObject{
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "NewsModels")
+        let container = NSPersistentContainer(name: "NewsModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -93,19 +93,19 @@ class coreDataManager: NSObject{
         }
     }
     
-    func fetchCachedNews()->[Article]?{
-        let fetchRequest = NSFetchRequest<Article>(entityName:"Article")
+    func fetchCachedNews()->News?{
+        let fetchRequest = NSFetchRequest<News>(entityName:"News")
 
          let managedObjectContext = persistentContainer.viewContext
           
           do {
-               let Articles = try managedObjectContext.fetch(fetchRequest)
-              if(Articles.count>0){
-                return Articles.unique{$0.title}
+               let news = try managedObjectContext.fetch(fetchRequest)
+            
+            return news.first!
                 // duplicate remover
                 
             
-            }} catch let error {
+            } catch let error {
                     print(error)
                 return nil
                 }

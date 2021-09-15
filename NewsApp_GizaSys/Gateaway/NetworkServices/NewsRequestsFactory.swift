@@ -20,8 +20,8 @@ class NewsRequestsFactory{
         
         AF.request(NewsURLFactory.News("apple")).responseJSON { (responce) in
             do{
-
                 if responce.response?.statusCode == 200{
+   
                     do{
                         guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
                             fatalError("Failed to retrieve managed object context")
@@ -34,7 +34,7 @@ class NewsRequestsFactory{
                         
                         
                         let modelResponse =   try jsonDecoder.decode(T.self, from: responce.data!)
-                        print(modelResponse)
+                        print("\(modelResponse)")
  
                         try managedObjectContext.save()
                         // Parse JSON data to save
