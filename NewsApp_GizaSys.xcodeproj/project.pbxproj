@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050BE14926F2062D006B3582 /* NewsModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 050BE13926F204F9006B3582 /* NewsModels.xcdatamodeld */; };
 		052BDE0E26EE7FFB0032650D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BDE0D26EE7FFB0032650D /* Route.swift */; };
 		052BDE1326EE80240032650D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BDE1226EE80240032650D /* UIViewController+Extension.swift */; };
 		052BDE1826EE80F30032650D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BDE1726EE80F30032650D /* DetailsViewController.swift */; };
@@ -15,7 +16,6 @@
 		05E2313E26EE0DD400CB834D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2313D26EE0DD400CB834D /* SceneDelegate.swift */; };
 		05E2314026EE0DD400CB834D /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2313F26EE0DD400CB834D /* NewsListViewController.swift */; };
 		05E2314326EE0DD400CB834D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E2314126EE0DD400CB834D /* Main.storyboard */; };
-		05E2314626EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05E2314426EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodeld */; };
 		05E2314826EE0DD800CB834D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05E2314726EE0DD800CB834D /* Assets.xcassets */; };
 		05E2314B26EE0DD800CB834D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E2314926EE0DD800CB834D /* LaunchScreen.storyboard */; };
 		05E2315626EE0DD800CB834D /* NewsApp_GizaSysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2315526EE0DD800CB834D /* NewsApp_GizaSysTests.swift */; };
@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		050BE13A26F204F9006B3582 /* NewsModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsModels.xcdatamodel; sourceTree = "<group>"; };
 		052BDE0D26EE7FFB0032650D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		052BDE1226EE80240032650D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		052BDE1726EE80F30032650D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		05E2313D26EE0DD400CB834D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		05E2313F26EE0DD400CB834D /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		05E2314226EE0DD400CB834D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		05E2314526EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp_GizaSys.xcdatamodel; sourceTree = "<group>"; };
 		05E2314726EE0DD800CB834D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05E2314A26EE0DD800CB834D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05E2314C26EE0DD800CB834D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 				05E2314726EE0DD800CB834D /* Assets.xcassets */,
 				05E2314926EE0DD800CB834D /* LaunchScreen.storyboard */,
 				05E2314C26EE0DD800CB834D /* Info.plist */,
-				05E2314426EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodeld */,
+				050BE13926F204F9006B3582 /* NewsModels.xcdatamodeld */,
 			);
 			path = NewsApp_GizaSys;
 			sourceTree = "<group>";
@@ -537,6 +537,7 @@
 				05E231AF26EE159500CB834D /* NewsURLFactory.swift in Sources */,
 				05E231BA26EE1A3800CB834D /* NewsRequestsFactory.swift in Sources */,
 				05E231D926EE418300CB834D /* UITableView+Extension.swift in Sources */,
+				050BE14926F2062D006B3582 /* NewsModels.xcdatamodeld in Sources */,
 				05E2314026EE0DD400CB834D /* NewsListViewController.swift in Sources */,
 				05E231D026EE31EF00CB834D /* Array + Extension.swift in Sources */,
 				05E231C426EE23CA00CB834D /* coreDataManager.swift in Sources */,
@@ -552,7 +553,6 @@
 				05E2313C26EE0DD300CB834D /* AppDelegate.swift in Sources */,
 				05E2313E26EE0DD400CB834D /* SceneDelegate.swift in Sources */,
 				05E231E026EE43DD00CB834D /* HomeTableViewCell.swift in Sources */,
-				05E2314626EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,13 +887,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		05E2314426EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodeld */ = {
+		050BE13926F204F9006B3582 /* NewsModels.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				05E2314526EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodel */,
+				050BE13A26F204F9006B3582 /* NewsModels.xcdatamodel */,
 			);
-			currentVersion = 05E2314526EE0DD400CB834D /* NewsApp_GizaSys.xcdatamodel */;
-			path = NewsApp_GizaSys.xcdatamodeld;
+			currentVersion = 050BE13A26F204F9006B3582 /* NewsModels.xcdatamodel */;
+			path = NewsModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
