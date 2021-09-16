@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol  HomeCellViewProtocol {
     func config()
@@ -16,6 +17,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet private weak var homeImageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var sourceLabel: UILabel!
+    @IBOutlet private weak var loader: UIActivityIndicatorView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,9 +33,26 @@ class HomeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(description: String, source: String){
+    func configureCell(description: String, source: String, url: URL?){
         self.descriptionLabel.text = description
         self.sourceLabel.text = source
+        guard let url = url else {
+            return
+        }
+        showIndicator()
+        homeImageView.kf.setImage(with: url)
+        hideIndicator()
+        
+        
+    }
+    private func showIndicator(){
+        self.loader.isHidden = false
+        self.loader.startAnimating()
+    }
+    private func hideIndicator(){
+        loader.stopAnimating()
+        self.loader.isHidden = true
+        
     }
     
 }

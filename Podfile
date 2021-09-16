@@ -7,7 +7,7 @@ target 'NewsApp_GizaSys' do
 
   # Pods for NewsApp_GizaSys
 pod 'Alamofire', '~> 5.2'
-
+pod 'Kingfisher'
   target 'NewsApp_GizaSysTests' do
     inherit! :search_paths
     # Pods for testing

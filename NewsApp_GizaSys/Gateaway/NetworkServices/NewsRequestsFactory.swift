@@ -14,14 +14,13 @@ class NewsRequestsFactory{
     // Block to handle responses in case of success and have data
     typealias NetworkSuccessBlock = (_ T:Decodable?)->Void
     // Block to handle responses in case of failure
-    typealias NetworkFailureBlock = (AFError?)->Void
+    typealias NetworkFailureBlock = (Error?)->Void
     
-    static func retrieveDaysNews<T>(modelType:T.Type, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
+    static func retrieveDaysNews<T>(modelType:T.Type,topic: String, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
         
-        AF.request(NewsURLFactory.News("apple")).responseJSON { (responce) in
+        AF.request(NewsURLFactory.News(topic)).responseJSON { (responce) in
             do{
                 if responce.response?.statusCode == 200{
-   
                     do{
                         guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
                             fatalError("Failed to retrieve managed object context")
@@ -46,11 +45,11 @@ class NewsRequestsFactory{
                       }
                         
                     } catch let error{
-                        print("ggggggg \(error)")
-          //      fatalError("here")
+                   print(error)
                         
                     }
                 }else{
+successBlock(nil)
                     
                 }
                 

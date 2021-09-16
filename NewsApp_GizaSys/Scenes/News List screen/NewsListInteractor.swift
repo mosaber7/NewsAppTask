@@ -14,7 +14,7 @@ protocol NewsListInteractorProtocol {
 
 class NewsListInteractor {
     var presenter: NewsListPresenterProtocol?
-    var news: News?
+
     
     
     
@@ -24,11 +24,12 @@ class NewsListInteractor {
 extension NewsListInteractor : NewsListInteractorProtocol{
     
     func getNews(for topic: String) {
-        NewsRequestsFactory.retrieveDaysNews(modelType: News.self) { [weak self] (responce) in
-            self?.news = responce as? News
-            print(self?.news)
-            
+        NewsRequestsFactory.retrieveDaysNews(modelType: News.self, topic: topic) { [weak self] (news) in
+            guard let news = news as? News else{
+                self?.presenter?.articlesFetchedWithAnError(error: "a")
+                return
+            }
+            self?.presenter?.articlesFetchedSuccessfully(articles: news.articles)
         }
-
     }
 }

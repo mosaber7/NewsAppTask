@@ -101,7 +101,7 @@ class coreDataManager: NSObject{
           do {
                let news = try managedObjectContext.fetch(fetchRequest)
             
-            return news.first!
+            return news.first
                 // duplicate remover
                 
             
@@ -109,7 +109,7 @@ class coreDataManager: NSObject{
                     print(error)
                 return nil
                 }
-        return nil
     }
+    
 }
 

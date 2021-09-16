@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C5061b" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="News" representedClassName="News" syncable="YES">
+    <entity name="Article" representedClassName="Article" syncable="YES">
         <attribute name="articleDescription" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="content" optional="YES" attributeType="String"/>
@@ -10,7 +10,12 @@
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="urlToImage" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="News" representedClassName="News" syncable="YES">
+        <attribute name="articles" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName=".Set&lt;Article&gt;"/>
+        <relationship name="article" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article"/>
+    </entity>
     <elements>
-        <element name="News" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="News" positionX="-45" positionY="63" width="128" height="59"/>
     </elements>
 </model>

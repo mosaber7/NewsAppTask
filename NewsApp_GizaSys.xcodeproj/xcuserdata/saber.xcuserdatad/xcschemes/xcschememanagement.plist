@@ -7,7 +7,25 @@
 		<key>NewsApp_GizaSys.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>05E2313726EE0DD300CB834D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>05E2315026EE0DD800CB834D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>05E2315B26EE0DD800CB834D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
