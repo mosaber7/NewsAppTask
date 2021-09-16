@@ -127,6 +127,15 @@ class News: NSManagedObject, Codable {
         try container.encodeIfPresent(articles, forKey: .articles)
     }
     
+    func getNewsModel()-> NewsViewModel?{
+        var newsModel = NewsViewModel()
+        guard let articles = articles else {
+            return nil
+        }
+        newsModel.articles = Array(articles)
+        return newsModel
+    }
+    
 }
 
 @objc(Article)
@@ -193,9 +202,15 @@ class Article: NSManagedObject, Codable {
         
     }
     
+    
+    
 }
 enum SourceCodingKeys: String, CodingKey {
     case id
     case name
 
+}
+
+struct NewsViewModel{
+    var articles: [Article]?
 }

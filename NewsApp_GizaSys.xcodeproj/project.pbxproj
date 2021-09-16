@@ -25,7 +25,6 @@
 		05E2319726EE114E00CB834D /* NewsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2319626EE114E00CB834D /* NewsListRouter.swift */; };
 		05E2319C26EE118400CB834D /* NewsListNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2319B26EE118400CB834D /* NewsListNavigationRouter.swift */; };
 		05E231A526EE122600CB834D /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E231A426EE122600CB834D /* NewsModel.swift */; };
-		05E231AA26EE13CE00CB834D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E231A926EE13CE00CB834D /* NetworkManager.swift */; };
 		05E231AF26EE159500CB834D /* NewsURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E231AE26EE159500CB834D /* NewsURLFactory.swift */; };
 		05E231BA26EE1A3800CB834D /* NewsRequestsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E231B926EE1A3800CB834D /* NewsRequestsFactory.swift */; };
 		05E231C426EE23CA00CB834D /* coreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E231C326EE23CA00CB834D /* coreDataManager.swift */; };
@@ -80,7 +79,6 @@
 		05E2319626EE114E00CB834D /* NewsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListRouter.swift; sourceTree = "<group>"; };
 		05E2319B26EE118400CB834D /* NewsListNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListNavigationRouter.swift; sourceTree = "<group>"; };
 		05E231A426EE122600CB834D /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		05E231A926EE13CE00CB834D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		05E231AE26EE159500CB834D /* NewsURLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsURLFactory.swift; sourceTree = "<group>"; };
 		05E231B926EE1A3800CB834D /* NewsRequestsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRequestsFactory.swift; sourceTree = "<group>"; };
 		05E231C326EE23CA00CB834D /* coreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataManager.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		05E231C126EE235500CB834D /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
-				05E231A926EE13CE00CB834D /* NetworkManager.swift */,
 				05E231B926EE1A3800CB834D /* NewsRequestsFactory.swift */,
 				05E231AE26EE159500CB834D /* NewsURLFactory.swift */,
 			);
@@ -542,7 +539,6 @@
 				05E231C426EE23CA00CB834D /* coreDataManager.swift in Sources */,
 				052BDE1D26EE83F20032650D /* DetailsPresenter.swift in Sources */,
 				05E2319226EE114000CB834D /* NewsListInteractor.swift in Sources */,
-				05E231AA26EE13CE00CB834D /* NetworkManager.swift in Sources */,
 				05E2319726EE114E00CB834D /* NewsListRouter.swift in Sources */,
 				052BDE0E26EE7FFB0032650D /* Route.swift in Sources */,
 				05B48BC826F2218A002F07D0 /* NewsModel.xcdatamodeld in Sources */,

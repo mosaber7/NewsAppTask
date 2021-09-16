@@ -21,12 +21,12 @@ extension NewsListInteractor : NewsListInteractorProtocol{
     
     func getNews(for topic: String) {
         NewsRequestsFactory.retrieveDaysNews(modelType: News.self, topic: topic) { [weak self] (news) in
-            guard let news = news as? News, let articles = news.articles  else{
+            guard let news = news as? News, let articles = news.getNewsModel()?.articles  else{
                 self?.presenter?.articlesFetchedWithAnError(error: "a")
                 return
             }
-            let articlesArr = Array(articles)
-            self?.presenter?.articlesFetchedSuccessfully(articles: articlesArr)
+            
+            self?.presenter?.articlesFetchedSuccessfully(articles: articles)
         }
     }
 }
