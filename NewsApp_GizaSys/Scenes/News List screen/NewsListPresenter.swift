@@ -95,7 +95,7 @@ extension NewsListPresenter: NewsListPresenterProtocol{
     
     func articlesFetchedWithAnError(error: String) {
         self.view?.presentAnAlert(error: error)
-
+        view?.hideIndicator()
         self.view?.reloadData()
     }
     

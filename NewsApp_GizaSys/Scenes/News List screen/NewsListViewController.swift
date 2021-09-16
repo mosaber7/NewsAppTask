@@ -54,7 +54,7 @@ class NewsListViewController: UIViewController {
 extension NewsListViewController: NewsListViewProtocol{
     
     func presentAnAlert(error: String) {
-        let alert = UIAlertController(title: "ATTENTION", message: error, preferredStyle: .alert)
+        let alert = UIAlertController(title: "ATTENTION", message: "Please see what is wrong", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
