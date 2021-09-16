@@ -73,7 +73,7 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = homeTableView.dequeue() as HomeTableViewCell
-        cell.configureCell(description: self.presenter?.configureCell(at: indexPath.row).0 ?? "", source: self.presenter?.configureCell(at: indexPath.row).1 ?? "",url: self.presenter?.configureCell(at: indexPath.row).2)
+        self.presenter?.configureCell(cell: cell, index: indexPath.row)
         return cell
         
         

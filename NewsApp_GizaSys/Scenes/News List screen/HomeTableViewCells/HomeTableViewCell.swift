@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 protocol  HomeCellViewProtocol {
-    func config()
+    func config(description: String, source: String, url: URL? )
     
 }
 class HomeTableViewCell: UITableViewCell {
@@ -34,14 +34,7 @@ class HomeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(description: String, source: String, url: URL?){
-        self.descriptionLabel.text = description
-        self.sourceLabel.text = source
-        guard let url = url else {
-            return
-        }
-        showIndicator()
-        homeImageView.kf.setImage(with: url)
-        hideIndicator()
+        
         
         
     }
@@ -58,7 +51,14 @@ class HomeTableViewCell: UITableViewCell {
 }
 
 extension HomeTableViewCell: HomeCellViewProtocol{
-    func config() {
-        
+    func config(description: String, source: String, url: URL? ) {
+        self.descriptionLabel.text = description
+        self.sourceLabel.text = source
+        guard let url = url else {
+            return
+        }
+        showIndicator()
+        homeImageView.kf.setImage(with: url)
+        hideIndicator()
     }
 }

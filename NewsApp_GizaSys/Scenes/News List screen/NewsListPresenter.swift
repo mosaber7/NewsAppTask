@@ -10,10 +10,13 @@ import Foundation
 protocol NewsListPresenterProtocol {
     var view: NewsListViewProtocol?{get set}
     var numberOfRowsInSection: Int {get}
-    func configureCell(at index: Int) -> (String, String, URL?)
+    
+    
+    
+    func configureCell(cell: HomeCellViewProtocol, index: Int)
     func selectCell(at index: IndexPath)
     func searchNews(with topic: String)
-    func articlesFetchedSuccessfully(articles: Set<Article>?)
+    func articlesFetchedSuccessfully(articles: [Article]?)
     func articlesFetchedWithAnError(error: String)
     func viewDidLoad()
 }
@@ -21,7 +24,6 @@ protocol NewsListPresenterProtocol {
 class NewsListPresenter{
 
     private var articles: [Article]?
-    private var intialArticles: [Article]?
     weak var view: NewsListViewProtocol?
     private let interactor: NewsListInteractorProtocol?
     private let router: NewsListRouterProtocol?
@@ -42,15 +44,14 @@ class NewsListPresenter{
 
 extension NewsListPresenter: NewsListPresenterProtocol{
     func viewDidLoad() {
-//        guard let articles = coreDataManager.shared.fetchCachedNews()?.articles as? [Article]?, let articlesArr = articles else {
-//        
-//            return
-//        }
-//        for article in articlesArr{
-//            self.articles?.append(article)
-//        }
-//        print(articles?.count)
-//        view?.reloadData()
+        guard let articlesFetched = coreDataManager.shared.fetchCachedNews() else {
+            print("fgbdfg")
+            return
+        }
+        print(articlesFetched.count)
+        self.articles = articlesFetched
+        view?.reloadData()
+        
     }
     func searchNews(with topic: String) {
         self.view?.showIndicator()
@@ -58,17 +59,20 @@ extension NewsListPresenter: NewsListPresenterProtocol{
     }
       
     
-    func configureCell(at index: Int)-> (String,String, URL?) {
+    func configureCell(cell: HomeCellViewProtocol, index: Int){
         guard let articles = articles,
-            index <= articles.count else {
-            return ("","", nil)
+              index <= articles.count else {
+            cell.config(description: "", source: "", url: nil)
+            return
         }
+        let description = articles[index].title ?? ""
+        let sourceName = articles[index].name ?? ""
         guard let  urlString = articles[index].urlToImage, let url = URL(string: urlString) else {
-            return (articles[index].title!, articles[index].name!, nil)
-            
+            cell.config(description: description, source: sourceName, url: nil)
+        return
         }
-        
-        return (articles[index].title!, articles[index].name!, url)
+        cell.config(description: description, source: sourceName, url: url)
+
     }
     func selectCell(at index: IndexPath) {
         guard let articles = articles else {
@@ -78,12 +82,12 @@ extension NewsListPresenter: NewsListPresenterProtocol{
         let detailsRoute = NewsListNavigationRouter.Details(selectedArticle)
         self.view?.navigate(to: detailsRoute)
     }
-    func articlesFetchedSuccessfully(articles: Set<Article>?) {
+    func articlesFetchedSuccessfully(articles: [Article]?) {
         guard let articles = articles else{
             return
         }
         print("data Fetched successfully")
-        self.articles = Array(articles)
+        self.articles = articles
         self.view?.hideIndicator()
         self.view?.reloadData()
         
@@ -91,7 +95,6 @@ extension NewsListPresenter: NewsListPresenterProtocol{
     
     func articlesFetchedWithAnError(error: String) {
         self.view?.presentAnAlert(error: error)
-        self.articles = coreDataManager.shared.fetchCachedNews()?.articles as? [Article]
 
         self.view?.reloadData()
     }
