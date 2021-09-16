@@ -23,7 +23,7 @@ protocol NewsListPresenterProtocol {
 
 class NewsListPresenter{
 
-    private var articles: [Article]?
+    private(set) var articles: [Article]?
     weak var view: NewsListViewProtocol?
     private let interactor: NewsListInteractorProtocol?
     private let router: NewsListRouterProtocol?
@@ -53,6 +53,7 @@ extension NewsListPresenter: NewsListPresenterProtocol{
         view?.reloadData()
         
     }
+    
     func searchNews(with topic: String) {
         self.view?.showIndicator()
         self.interactor?.getNews(for: topic)

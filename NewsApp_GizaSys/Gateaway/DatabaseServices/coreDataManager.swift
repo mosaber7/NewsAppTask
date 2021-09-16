@@ -13,9 +13,12 @@ public extension CodingUserInfoKey {
     static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")
 }
 
-class coreDataManager: NSObject{
+public class coreDataManager: NSObject{
     
     static let shared = coreDataManager()
+    private var storeType: String!
+    
+    
     private override init() {
         super.init()
     }
