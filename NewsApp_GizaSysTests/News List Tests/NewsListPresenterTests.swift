@@ -25,10 +25,6 @@ class NewsListPresenterTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_searchNews_isCalled(){
-        
-    }
-    
-    
+
 
 }

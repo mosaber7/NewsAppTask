@@ -7,16 +7,25 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 
 class NewsRequestsFactory{
+    
+    let backgroundContext: NSManagedObjectContext
 
+        // MARK: - Init
+
+        init(backgroundContext: NSManagedObjectContext = CoreDataManager.shared.backgroundContext) {
+            self.backgroundContext = backgroundContext
+        }
+    
     // Block to handle responses in case of success and have data
     typealias NetworkSuccessBlock = (_ T:Decodable?)->Void
     // Block to handle responses in case of failure
     typealias NetworkFailureBlock = (Error?)->Void
     
-    static func retrieveDaysNews<T>(modelType:T.Type,topic: String, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
+     func retrieveDaysNews<T>(modelType:T.Type,topic: String, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
         
         AF.request(NewsURLFactory.News(topic)).responseJSON { (responce) in
             do{
@@ -28,28 +37,37 @@ class NewsRequestsFactory{
                         // Parse JSON data to save accounts if needed
                         let jsonDecoder = JSONDecoder()
                         
-                        let managedObjectContext = coreDataManager.shared.persistentContainer.viewContext
-                        jsonDecoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+                        
+                        jsonDecoder.userInfo[codingUserInfoKeyManagedObjectContext] = self.backgroundContext
                         
                         
                         let modelResponse =   try jsonDecoder.decode(T.self, from: responce.data!)
                         print("\(modelResponse)")
- 
-                        try managedObjectContext.save()
+                        
+                        self.backgroundContext.performAndWait {
+                            
+                            do{
+                                CoreDataManager.shared.clearStorageFromEntity(entityName: "Article")
+                                try self.backgroundContext.save()}
+                            catch{
+                                print("failed to save t0 the database")
+                            }
+                        }
+                        
                         // Parse JSON data to save
-                 
-                      jsonDecoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
-                      let newsData =   try jsonDecoder.decode(T.self, from: responce.data!)
-                      DispatchQueue.main.async {
-                        successBlock(newsData)
-                      }
+                        
+                        jsonDecoder.userInfo[codingUserInfoKeyManagedObjectContext] = self.backgroundContext
+                        let newsData =   try jsonDecoder.decode(T.self, from: responce.data!)
+                        DispatchQueue.main.async {
+                            successBlock(newsData)
+                        }
                         
                     } catch let error{
-                   print(error)
+                        print(error)
                         
                     }
                 }else{
-successBlock(nil)
+                    successBlock(nil)
                     
                 }
                 

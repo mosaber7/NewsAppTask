@@ -8,47 +8,79 @@
 import Foundation
 import CoreData
 
-public extension CodingUserInfoKey {
-    // Helper property to retrieve the context
-    static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")
-}
 
-public class coreDataManager: NSObject{
+
+public class CoreDataManager: NSObject{
     
-    static let shared = coreDataManager()
+    static let shared = CoreDataManager()
     private var storeType: String!
     
     
-    private override init() {
+    override init() {
         super.init()
     }
-  
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
+        
         let container = NSPersistentContainer(name: "NewsModel")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        let description = container.persistentStoreDescriptions.first
+        description?.type = storeType ?? NSSQLiteStoreType
+        
+        container.loadPersistentStores {(_, error) in
             if let error = error as NSError? {
-                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        })
+        }
         return container
     }()
-
+    // MARK: - SetUp
+    
+    func setup(storeType: String = NSSQLiteStoreType, completion: (() -> Void)?) {
+        self.storeType = storeType
+        loadPersistentStore {
+            completion?()
+        }
+    }
+    
+    // MARK: - Loading
+    
+    private func loadPersistentStore(completion: @escaping () -> Void) {
+        //handle data migration on a different thread/queue here
+        persistentContainer.loadPersistentStores { description, error in
+            guard error == nil else {
+                fatalError("was unable to load store \(error!)")
+            }
+            
+            completion()
+        }
+    }
+    
+    //MARK: - Contexts
+    
+    lazy var backgroundContext: NSManagedObjectContext = {
+        let context = self.persistentContainer.newBackgroundContext()
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        return context
+    }()
+    
+    //MARK: - for faster testing
+    lazy var mainContext: NSManagedObjectContext = {
+        let context = self.persistentContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        
+        return context
+    }()
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+        
+        if mainContext.hasChanges {
             do {
-                try context.save()
+                try mainContext.save()
             } catch {
                 
                 let nserror = error as NSError
@@ -56,14 +88,14 @@ public class coreDataManager: NSObject{
             }
         }
     }
-
-    // Clear DB
+    
+    //MARK:-  Clear DB
     func clearStorageFromEntity(entityName:String) {
         let isInMemoryStore = persistentContainer.persistentStoreDescriptions.reduce(false) {
             return $0 ? true : $1.type == NSInMemoryStoreType
         }
         
-        let managedObjectContext = persistentContainer.viewContext
+        let managedObjectContext = mainContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         // NSBatchDeleteRequest is not supported for in-memory stores
         if isInMemoryStore {
@@ -85,22 +117,26 @@ public class coreDataManager: NSObject{
         }
     }
     
+    //MARK:-  fetch News from DB
+
     func fetchCachedNews()-> [Article]?{
         let fetchRequest = NSFetchRequest<Article>(entityName:"Article")
-
-         let managedObjectContext = persistentContainer.viewContext
-          
-          do {
-               let article = try managedObjectContext.fetch(fetchRequest)
-            
-            return article
+        var articles = [Article]()
+        
+        mainContext.performAndWait {
+            do {
+                articles = try mainContext.fetch(fetchRequest)
                 // duplicate remover
-            
+                
             } catch let error {
-                    print(error)
-                return nil
-                }
+                print(error)
+                
+            }
+        }
+        return articles.unique{ $0.title}
     }
     
 }
+
+
 

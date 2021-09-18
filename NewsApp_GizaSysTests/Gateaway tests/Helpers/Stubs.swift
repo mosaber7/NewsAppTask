@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+
 @testable import NewsApp_GizaSys
 
 enum MockData{
@@ -53,7 +55,8 @@ class MockNewsListInteractor: NewsListInteractorProtocol{
     var presenter: NewsListPresenterProtocol?
     
     func getNews(for topic: String) {
-        NewsRequestsFactory.retrieveDaysNews(modelType: News.self, topic: MockData.topic) { (news) in
+        let factory = NewsRequestsFactory()
+        factory.retrieveDaysNews(modelType: News.self, topic: MockData.topic) { (news) in
             
         }
     }

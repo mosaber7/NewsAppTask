@@ -44,7 +44,7 @@ class NewsListPresenter{
 
 extension NewsListPresenter: NewsListPresenterProtocol{
     func viewDidLoad() {
-        guard let articlesFetched = coreDataManager.shared.fetchCachedNews() else {
+        guard let articlesFetched = CoreDataManager.shared.fetchCachedNews() else {
             print("fgbdfg")
             return
         }
