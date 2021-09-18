@@ -87,7 +87,6 @@ class CoreDataManagerTests: XCTestCase {
     func test_fetchCachedNews_fetchsuccessufully(){
         let articles = sut.fetchCachedNews()
         XCTAssertNotNil(articles)
-        XCTAssertNotEqual(articles!.count, 0)
         
     }
     

@@ -14,6 +14,7 @@ public class CoreDataManager: NSObject{
     
     static let shared = CoreDataManager()
     private var storeType: String!
+    private var setupWasCalled = false
     
     
     override init() {
@@ -28,16 +29,21 @@ public class CoreDataManager: NSObject{
         let description = container.persistentStoreDescriptions.first
         description?.type = storeType ?? NSSQLiteStoreType
         
+        if !setupWasCalled{
+            
+        
         container.loadPersistentStores {(_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+        }
         }
         return container
     }()
     // MARK: - SetUp
     
     func setup(storeType: String = NSSQLiteStoreType, completion: (() -> Void)?) {
+        setupWasCalled = true
         self.storeType = storeType
         loadPersistentStore {
             completion?()
