@@ -31,7 +31,7 @@ class NewsListPresenterTests: XCTestCase {
         XCTAssertTrue(view.showIndicatorIScalled)
     }
     func test_selectCell_Navigated(){
-        sut?.viewDidLoad()
+        sut?.PresenterDidLoad()
         sut?.selectCell(at: MockData.index)
         XCTAssertTrue(view.navvigateIsCalled)
     }

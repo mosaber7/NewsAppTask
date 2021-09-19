@@ -8,17 +8,17 @@
 import Foundation
 
 protocol NewsListPresenterProtocol {
-    var view: NewsListViewProtocol?{get set}
+    var view: NewsListViewProtocol?{get }
     var numberOfRowsInSection: Int {get}
     
     
     
-    func configureCell(cell: HomeCellViewProtocol, index: Int)
+    func configureCell(index: Int)-> (String, String, URL?)?
     func selectCell(at index: IndexPath)
     func searchNews(with topic: String)
     func articlesFetchedSuccessfully(articles: [Article]?)
     func articlesFetchedWithAnError(error: String)
-    func viewDidLoad()
+    func fetchData()
 }
 
 class NewsListPresenter{
@@ -43,9 +43,9 @@ class NewsListPresenter{
 }
 
 extension NewsListPresenter: NewsListPresenterProtocol{
-    func viewDidLoad() {
+    func fetchData() {
         guard let articlesFetched = CoreDataManager.shared.fetchCachedNews() else {
-            print("fgbdfg")
+            print("Error fetching data")
             return
         }
         print(articlesFetched.count)
@@ -60,20 +60,17 @@ extension NewsListPresenter: NewsListPresenterProtocol{
     }
       
     
-    func configureCell(cell: HomeCellViewProtocol, index: Int){
+    func configureCell(index: Int)-> (String, String, URL?)?{
         guard let articles = articles,
               index <= articles.count else {
-            cell.config(description: "", source: "", url: nil)
-            return
+           return nil
         }
         let description = articles[index].title ?? ""
         let sourceName = articles[index].name ?? ""
         guard let  urlString = articles[index].urlToImage, let url = URL(string: urlString) else {
-            cell.config(description: description, source: sourceName, url: nil)
-        return
+            return (description, sourceName, nil)
         }
-        cell.config(description: description, source: sourceName, url: url)
-
+return (description, sourceName, url)
     }
     func selectCell(at index: IndexPath) {
         guard let articles = articles else {

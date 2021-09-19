@@ -13,19 +13,19 @@ import CoreData
 class NewsRequestsFactory{
     
     let backgroundContext: NSManagedObjectContext
-
-        // MARK: - Init
-
-        init(backgroundContext: NSManagedObjectContext = CoreDataManager.shared.backgroundContext) {
-            self.backgroundContext = backgroundContext
-        }
+    
+    // MARK: - Init
+    
+    init(backgroundContext: NSManagedObjectContext = CoreDataManager.shared.backgroundContext) {
+        self.backgroundContext = backgroundContext
+    }
     
     // Block to handle responses in case of success and have data
     typealias NetworkSuccessBlock = (_ T:Decodable?)->Void
     // Block to handle responses in case of failure
     typealias NetworkFailureBlock = (Error?)->Void
     
-     func retrieveDaysNews<T>(modelType:T.Type,topic: String, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
+    func retrieveDaysNews<T>(modelType:T.Type,topic: String, successBlock:@escaping NetworkSuccessBlock) where T : Decodable {
         
         AF.request(NewsURLFactory.News(topic)).responseJSON { (responce) in
             do{
@@ -63,11 +63,10 @@ class NewsRequestsFactory{
                         }
                         
                     } catch let error{
-                        print(error)
                         
                     }
                 }else{
-                    successBlock(nil)
+                    
                     
                 }
                 
@@ -75,4 +74,7 @@ class NewsRequestsFactory{
         }
         
     }
+    
 }
+
+

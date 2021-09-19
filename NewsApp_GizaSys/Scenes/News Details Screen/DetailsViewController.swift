@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 protocol DetailsViewProtocol: AnyObject{
-    var presenter: DetailsPresenterProtocol? {get set}
+    var presenter: DetailsPresenterProtocol? {get}
     func present(view: UIViewController)
     
     

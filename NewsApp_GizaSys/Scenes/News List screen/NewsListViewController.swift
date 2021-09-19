@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NewsListViewProtocol : AnyObject, NavigationRoute{
-    var presenter: NewsListPresenterProtocol?{set get}
+    var presenter: NewsListPresenterProtocol?{get}
     func reloadData()
     func presentAnAlert(error: String)
     func showIndicator()
@@ -27,7 +27,7 @@ class NewsListViewController: UIViewController {
         super.viewDidLoad()
         registerCell()
         title = "News"
-        presenter?.viewDidLoad()
+        presenter?.fetchData()
         
     }
    
@@ -54,7 +54,7 @@ class NewsListViewController: UIViewController {
 extension NewsListViewController: NewsListViewProtocol{
     
     func presentAnAlert(error: String) {
-        let alert = UIAlertController(title: "ATTENTION", message: "Please see what is wrong", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ATTENTION", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -73,7 +73,10 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = homeTableView.dequeue() as HomeTableViewCell
-        self.presenter?.configureCell(cell: cell, index: indexPath.row)
+        guard let cellData = self.presenter?.configureCell(index: indexPath.row) else{
+            return cell
+        }
+        cell.config(description: cellData.0, source: cellData.1, url: cellData.2)
         return cell
         
         

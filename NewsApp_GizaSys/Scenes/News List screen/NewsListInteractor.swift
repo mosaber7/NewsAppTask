@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NewsListInteractorProtocol {
-    var presenter: NewsListPresenterProtocol?{get set}
+    var presenter: NewsListPresenterProtocol?{get}
     func getNews(for topic: String)
 }
 

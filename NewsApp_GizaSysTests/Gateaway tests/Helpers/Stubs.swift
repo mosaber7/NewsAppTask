@@ -98,7 +98,7 @@ class MockNewsListPresenter: NewsListPresenterProtocol{
         
     }
     
-    func viewDidLoad() {
+    func PresenterDidLoad() {
         
     }
     

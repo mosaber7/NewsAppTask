@@ -19,7 +19,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ahd-UN-KTc">
                                 <rect key="frame" x="8" y="52" width="398" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="35Q-eb-7nN"/>
                                 </connections>

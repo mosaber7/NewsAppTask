@@ -11,7 +11,7 @@ import SafariServices
 
 
 protocol DetailsPresenterProtocol {
-    var view: DetailsViewProtocol?{get set}
+    var view: DetailsViewProtocol?{get}
     var title: String {get}
     var description: String{get}
     var content: String{get}
