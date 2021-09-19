@@ -172,6 +172,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		05D9589A26F73E9300292293 /* Details Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Details Tests";
+			sourceTree = "<group>";
+		};
 		05E2312F26EE0DD300CB834D = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +222,7 @@
 			children = (
 				05BA300126F37C2B002FB61C /* Gateaway tests */,
 				05BA300026F37B18002FB61C /* News List Tests */,
+				05D9589A26F73E9300292293 /* Details Tests */,
 				05E2315726EE0DD800CB834D /* Info.plist */,
 			);
 			path = NewsApp_GizaSysTests;

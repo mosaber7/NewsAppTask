@@ -20,6 +20,9 @@ enum MockData{
     static var numberOfRowsInSection: Int{
         return 20
     }
+    static var articles: [Article]{
+        return []
+    }
 }
 
 class MockNewsListView: NewsListViewProtocol{

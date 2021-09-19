@@ -25,6 +25,30 @@ class NewsListPresenterTests: XCTestCase {
         super.tearDown()
     }
     
+    
+    func test_searchNews_indicatorIsShown(){
+        sut?.searchNews(with: MockData.topic)
+        XCTAssertTrue(view.showIndicatorIScalled)
+    }
+    func test_selectCell_Navigated(){
+        sut?.viewDidLoad()
+        sut?.selectCell(at: MockData.index)
+        XCTAssertTrue(view.navvigateIsCalled)
+    }
+    
+    func test_articlesFetchedSuccessfully_IndicatorIsHidden(){
+        sut?.articlesFetchedSuccessfully(articles: [])
+        XCTAssertTrue(view.hideIndicatorIscalled)
+        XCTAssertTrue(view.reloadDataIsCalled)
+
+    }
+    func test_articlesFetchedWithAnError_AlertPresented(){
+        sut?.articlesFetchedWithAnError(error: "")
+        XCTAssertTrue(view.presentAnAlertIsCalled)
+        XCTAssertTrue(view.hideIndicatorIscalled)
+        XCTAssertTrue(view.reloadDataIsCalled)
+    }
+    
 
 
 }
